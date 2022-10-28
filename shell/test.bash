@@ -1,13 +1,30 @@
 #!/bin/bash
+# SPDX-FileCopyrightText: 2022 Yusaku Matsuyama
+# SPDX-License-Identifier: BSD-3-Clause
 
 ng () {
-        echo ${1}行目が違うよ   #$1はngの1番目の引数
-        ret=1                   #最後に返す終了ステータスをセット
+      echo NG at Line $1
+      res=1
 }
 
-ret=0
-a=山田
-[ "$a" = 上田 ] || ng "$LINENO"  # LINENOは，この行の行番号の入る変数
-[ "$a" = 山田 ] || ng "$LINENO"  # ngに第一引数として$LINENOを付与
+res=0
 
-exit $ret     # このシェルスクリプトの終了ステータスを返して終了
+### I/O TEST ###
+out=$(seq 5 | ./plus)
+[ "${out}" = 14 ] || ng ${LINENO}
+
+### I/O ###
+out=$(seq 5 | ./plus)
+[ "${out}" = 15 ] || ng ${LINENO}
+
+### STRANGE INPUT ###
+out=$(echo あ | ./plus)
+[ "$?" = 1 ]      || ng ${LINENO}
+[ "${out}" = "" ] || ng ${LINENO}
+
+out=$(echo | ./plus) #空文字
+[ "$?" = 1 ]      || ng ${LINENO}
+[ "${out}" = "" ] || ng ${LINENO}
+
+[ "$res" = 0 ] && echo OK
+exit $res
