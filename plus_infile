@@ -1,0 +1,25 @@
+#!/usr/bin/python3
+# SPDX-FileCopyrightText: 2022 Yusaku Matsuyama
+# SPDX-License-Identifier: BSD-3-Clause
+
+import sys
+
+ans = 0
+nums = []
+
+with open('NumFile', 'r', encoding='utf-8') as con:
+    for line in con.readlines():
+        try:
+            num = int(line)
+        except ValueError as err:
+            print(err, file=sys.stderr)
+            continue
+        nums.append(num)
+
+for line in nums:
+    try:
+        ans += int(line)
+    except:
+        ans += float(line)
+
+print(ans)
