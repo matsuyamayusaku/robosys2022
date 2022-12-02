@@ -1,7 +1,11 @@
 # robosys2022
 ロボットシステム学の授業で作成
 
-## plusコマンド
+## コマンド
+### plus
+![test](https://github.com/matsuyamayusaku/robosys2022/actions/workflows/test.yml/badge.svg)
+
+### plus_infile
 ![test](https://github.com/matsuyamayusaku/robosys2022/actions/workflows/test.yml/badge.svg)
 
 ## 必要なソフトウェア
