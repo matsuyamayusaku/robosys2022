@@ -11,7 +11,7 @@
 $git clone https://github.com/matsuyamayusaku/robosys2022.git
 $cd robosys2022
 ```
-この状態で、下記のコマンドが使用可能となります。
+この状態で、コマンドが使用可能となります。
 
 ## コマンド
 ### plus
